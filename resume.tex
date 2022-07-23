@@ -4,6 +4,7 @@
 \usepackage{xcolor}
 \usepackage{datetime}
 \usepackage{tabularx}
+\usepackage{ragged2e}
 
 \usepackage{TLCresume}
 %====================
@@ -22,25 +23,24 @@
 \addbibresource{publications.bib}
 \bibname{Vu}{Hieu\bibnamedelima M}
 
-\input{_header}
+\input{header}
 
 \pagestyle{fancy}
 
 \begin{document}
-
 \thispagestyle{firstpage}
 
-\section{Summary}
-\input{sections/summary}
+% \section{Summary}
+% \input{sections/summary}
 
 \section{Experience}
 \input{sections/experience}
 
-\section{Education}
-\input{sections/education}
-
 \section{Publications}
 \input{sections/publications}
+
+\section{Education}
+\input{sections/education}
 
 \section{Skills}
 \input{sections/skills}

@@ -37,10 +37,10 @@
 % \fi
 
 % MARGINS AND SPACING
-\RequirePackage[margin=1in, top=1in, bottom=2in]{geometry} % Set Margins
+\RequirePackage[margin=.7in, top=.5in, bottom=1.5in]{geometry} % Set Margins
 % \usepackage[a4paper, top=1in, bottom=2in]{geometry}
-\raggedright % left align no indent
-\raggedbottom % top align no indent
+% \raggedright % left align no indent
+% \raggedbottom % top align no indent
 
 % COLOR
 \RequirePackage{xcolor}
@@ -59,7 +59,7 @@
 \titleformat{\subsection}{\bfseries}{}{0em}{}[]
 
 % BOLD COMMAND
-\newcommand{\skills}[1]{ {\bfseries #1}}
+\newcommand{\skills}[1]{ {\raggedleft \bfseries #1}}
 
 
 
@@ -68,13 +68,13 @@
 
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=0pt..1em}
-\newenvironment{zitemize}{
-\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 0pt \parsep 0pt}
-{\end{itemize}\vspace{0em}}
+\newenvironment{zitemize}
+  {\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 0pt \parsep 0pt}
+  {\end{itemize} \vspace{0em}}
 
-\newenvironment{xitemize}{
-\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
-{\end{itemize}\vspace{0em}}
+\newenvironment{xitemize}
+  {\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
+  {\end{itemize} \vspace{0em}}
 
 % NO PAGE NUMBER
 \pagenumbering{arabic}
