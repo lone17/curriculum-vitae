@@ -1,18 +1,44 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{TLCresume}[11/19/21 resume package]
-% Author: Timmy Chan
+
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
 
 % Assuming using "article" document class and letter sized paper.
 % FONT STUFF
 
 \RequirePackage[T1]{fontenc} %  Font encoding https://texfaq.org/FAQ-why-inp-font
-\RequirePackage[default,semibold]{sourcesanspro}
+% \RequirePackage[default,regular]{sourcesanspro}
 \RequirePackage[10pt]{moresize}
 \usepackage{anyfontsize}
 \RequirePackage{csquotes}
 
+% % Change the fonts if you want
+% \ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+%   \usepackage{fontspec} 
+%   %% You can use \setmainfont etc; I'm just using these font packages here because they provide OpenType fonts for use by XeLaTeX/LuaLaTeX anyway
+%   \usepackage[p,osf,swashQ]{cochineal}
+%   \usepackage[medium,bold]{cabin}
+%   \usepackage[varqu,varl,scale=0.9]{zi4}
+% \else % If you're using pdfLaTeX or latex
+%   \usepackage[T1]{fontenc}
+%   \usepackage[p,osf,swashQ]{cochineal}
+%   \usepackage{cabin}
+%   \usepackage[varqu,varl,scale=0.9]{zi4}
+% \fi
+
 % MARGINS AND SPACING
-\RequirePackage[margin=.5in, top=.5in, bottom=1in]{geometry} % Set Margins
+\RequirePackage[margin=1in, top=1in, bottom=2in]{geometry} % Set Margins
+% \usepackage[a4paper, top=1in, bottom=2in]{geometry}
 \raggedright % left align no indent
 \raggedbottom % top align no indent
 
@@ -20,17 +46,13 @@
 \RequirePackage{xcolor}
 \definecolor{highlight}{RGB}{61, 90, 128} % CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
 
-% LINKS
-\RequirePackage{hyperref}
-\hypersetup{colorlinks=true,urlcolor=highlight}
-
 % BULLET POINTS
 \RequirePackage[inline]{enumitem}
 \setlength{\tabcolsep}{0in}
 
 % SECTION FORMATTING 
 \RequirePackage[nostruts]{titlesec}
-\titlespacing*{\section}{0em}{0.5em}{0em}
+\titlespacing*{\section}{0em}{.5em}{0em}
 \titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
 % SUBSECTION FORMATTING
 \titlespacing*{\subsection}{0em}{0em}{0em}
@@ -42,20 +64,106 @@
 
 
 % SUBTEXT
-\newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.75em}}
+\newcommand{\subtext}[1]{\textit{#1}\par}
 
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}{
-\begin{itemize} \itemsep 0pt \parskip 0pt \parsep 0pt}
+\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 0pt \parsep 0pt}
+{\end{itemize}\vspace{0em}}
+
+\newenvironment{xitemize}{
+\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
 {\end{itemize}\vspace{0em}}
 
 % NO PAGE NUMBER
-\pagenumbering{gobble}
+\pagenumbering{arabic}
 
 % SUBFILES IMPORTING
 \RequirePackage{standalone}
 
 % FOR TEMPLATE FILLER
-\RequirePackage[english]{babel}
 \RequirePackage{blindtext}% Filler Text
+
+% \RequirePackage[english]{babel}
+
+\RequirePackage[bibstyle=authoryear,maxbibnames=99,sorting=ymdnt,uniquename=init,defernumbers=true,backend=biber]{biblatex}
+\RequirePackage{csquotes}
+%% Added 17 Jan 2018 from https://tex.stackexchange.com/a/140641/226 and https://tex.stackexchange.com/a/46879/226
+\DeclareSortingTemplate{ymdnt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field[strside=left,strwidth=4]{sortyear}
+    \field[strside=left,strwidth=4]{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{00}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{00}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+% \RequirePackage{tikz}
+% \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+%    \node[shape=circle,text=white,fill=MarkerColour!80!black,font=\sffamily\scriptsize\bfseries,inner sep=1pt,text height=1.35ex,minimum width=1.5em,text centered] (char) {#1};}}
+   
+\newcounter{bibitem}
+\AtBeginBibliography{\setcounter{bibitem}{1}}
+\AtEveryBibitem{\makebox[2.5em][l]{{\thebibitem}\stepcounter{bibitem}}}
+
+% \renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{1.5ex}
+\setlength{\bibhang}{2.5em}
+\RequirePackage{xpatch}
+\xpretofieldformat{doi}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+\xpretofieldformat{url}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+
+\newcommand{\bibname}[2]{%
+   \def\@mylastname{#1}%
+   \def\@myfirstname{#2}%
+}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+               and
+               test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}%
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+               and
+               test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}%
+}
+
+% LINKS
+\RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
+\hypersetup{colorlinks=true,urlcolor=highlight}
