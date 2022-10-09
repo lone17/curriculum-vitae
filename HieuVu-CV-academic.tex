@@ -1,0 +1,58 @@
+\documentclass[english,a4paper,10pt,roman]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[fixed]{fontawesome5}
+\usepackage{xcolor}
+\usepackage{datetime}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\usepackage{TLCresume}
+%====================
+% CONTACT INFORMATION
+%====================
+\def\name{Hieu (Ian) Vu} % Name Here
+\def\phone{(+84) 35 336 6633}
+\def\city{Hanoi, Vietnam}
+\def\email{vmhieu17@gmail.com}
+\def\gscholar{Hieu M. Vu}
+\def\linkedin{vmhieu} 
+\def\github{lone17} 
+
+\def\role{} % JOB TITLE
+
+\addbibresource{publications.bib}
+\bibname{Vu}{Hieu\bibnamedelima M}
+
+\input{sections/header}
+
+\pagestyle{fancy}
+
+\begin{document}
+\thispagestyle{firstpage}
+
+% \section{}
+\input{sections/intro}
+
+\section{Publications}
+\input{sections/publications}
+
+\section{Education}
+\input{sections/education}
+
+\section{Honours and Awards}
+\input{sections/awards}
+
+\section{Experience}
+\input{sections/experience}
+
+\section{Outreach}
+\input{sections/outreach}
+
+\section{Skills}
+\input{sections/skills}
+
+% make a newpage wherever it is a clean break
+% \newpage
+
+
+\end{document}
