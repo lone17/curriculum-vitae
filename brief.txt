@@ -1,0 +1,11 @@
+- I graduated from Vietnam National University in 2020, majoring in Computer Science. I was also very lucky to graduate with the highest GPA (3.83/4). 
+- I joined the workforce quite early, from Aug 2017, I started working as a undergraduate RA in the IoT Lab in my university. My work there focus on building predictive models for geophysical data using machine learning and statistical methods. I worked there until Sep 2019.
+- I started learning about ML and DL in Feb 2018 by taking the ML course and the DL specification on Coursera. I finished those courses around Jul 2018 and participated the Zalo AI challenge - a Kaggle-like contest by one of the biggest tech company in Vietnam and finished at top 4. After that I joined a similar contest by Cinnamon AI and got an offer from them in Nov 2018. 
+- Since then I've been working at Cinnamon AI focusing on building Document Intelligence technologies. During the time here, I co-author 3 papers on Information Extraction.
+
+- My updated CV: https://github.com/lone17/curriculum-vitae/blob/main/HieuVu-CV-academic.pdf
+- My Google Scholar profile: https://scholar.google.com/citations?user=iRZlaI8AAAAJ
+- A model that classifies the Vietnamese accent/dialect and gender of the speaker that I built for the Zalo AI contest: https://github.com/lone17/speech-processing
+- An OCR model for Vietnamese handwritten address texts I built for the Cinnamon AI contest: https://github.com/lone17/vietnamese_address_hwr
+- A modified version of Deformable Convolution where the convolution offsets stay the same for all channels in the input. This speeds up the Deformable Convolution operation by an order of magnitude while still achieving similar performance. https://github.com/lone17/deform-conv/blob/master/deform_conv/layers.py
+- A water metric reader my team and I built for a University course: https://github.com/lone17/electric-meter-ocr/blob/master/Report.pdfhttps://github.com/lone17/electric-meter-ocr
