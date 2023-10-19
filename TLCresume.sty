@@ -69,12 +69,12 @@
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}
-  {\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 0pt \parsep 0pt}
-  {\end{itemize} \vspace{0em}}
+{\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 0pt \parsep 0pt}
+    {\end{itemize} \vspace{0em}}
 
 \newenvironment{xitemize}
-  {\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
-  {\end{itemize} \vspace{0em}}
+{\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
+    {\end{itemize} \vspace{0em}}
 
 % NO PAGE NUMBER
 \pagenumbering{arabic}
@@ -127,7 +127,7 @@
 % \RequirePackage{tikz}
 % \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 %    \node[shape=circle,text=white,fill=MarkerColour!80!black,font=\sffamily\scriptsize\bfseries,inner sep=1pt,text height=1.35ex,minimum width=1.5em,text centered] (char) {#1};}}
-   
+
 \newcounter{bibitem}
 \AtBeginBibliography{\setcounter{bibitem}{1}}
 \AtEveryBibitem{\makebox[2.5em][l]{{\thebibitem}\stepcounter{bibitem}}}
@@ -137,31 +137,31 @@
 \setlength{\bibhang}{2.5em}
 \RequirePackage{xpatch}
 \xpretofieldformat{doi}
-  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
-  {}{}
+{\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+{}{}
 \xpretofieldformat{url}
-  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
-  {}{}
+{\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+{}{}
 
 \newcommand{\bibname}[2]{%
-   \def\@mylastname{#1}%
-   \def\@myfirstname{#2}%
+  \def\@mylastname{#1}%
+  \def\@myfirstname{#2}%
 }
 
 \renewcommand*{\mkbibnamefamily}[1]{%
   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
-               and
-               test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
-    {\textbf{#1}}%
-    {#1}%
+    and
+    test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+  {\textbf{#1}}%
+  {#1}%
 }
 
 \renewcommand*{\mkbibnamegiven}[1]{%
   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
-               and
-               test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
-    {\textbf{#1}}%
-    {#1}%
+    and
+    test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+  {\textbf{#1}}%
+  {#1}%
 }
 
 % LINKS
