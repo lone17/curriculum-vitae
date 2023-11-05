@@ -1,4 +1,4 @@
-\documentclass[english,a4paper,10pt,roman]{article}
+\documentclass[english,a4paper,10pt]{extarticle}
 \usepackage[utf8]{inputenc}
 \usepackage[fixed]{fontawesome5}
 \usepackage{xcolor}
@@ -6,29 +6,16 @@
 \usepackage{tabularx}
 \usepackage{ragged2e}
 
-\usepackage{TLCresume}
-%====================
-% CONTACT INFORMATION
-%====================
-\def\name{Hieu (Ian) Vu} % Name Here
-\def\phone{(+84) 35 336 6633}
-\def\city{Hanoi, Vietnam}
-\def\email{vmhieu17@gmail.com}
-\def\gscholar{Hieu M. Vu}
-\def\linkedin{vmhieu} 
-\def\github{lone17} 
+\usepackage{custom_styling}
+
+\input{sections/init}
+
+\begin{document}
 
 \def\role{} % JOB TITLE
 
-\addbibresource{publications.bib}
-\bibname{Vu}{Hieu\bibnamedelima M}
-
-\input{sections/header}
-
-\pagestyle{fancy}
-
-\begin{document}
-\thispagestyle{firstpage}
+\pagestyle{only_footer}
+\thispagestyle{header_footer}
 
 % \section{}
 \input{sections/intro}
@@ -46,7 +33,7 @@
 \input{sections/experience}
 
 \newpage
-\section{Projects}
+\section{Personal Projects}
 \input{sections/projects.tex}
 
 \section{Outreach}

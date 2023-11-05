@@ -167,3 +167,9 @@
 % LINKS
 \RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
 \hypersetup{colorlinks=true,urlcolor=highlight}
+
+% HEADER
+\RequirePackage{fancyhdr}
+
+% define date format as ddMMMyyyy
+\newdateformat{ddMMMyyyy}{\twodigit\THEDAY-\shortmonthname-\THEYEAR}
