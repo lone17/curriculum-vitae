@@ -12,8 +12,8 @@
 
 \begin{document}
 
-\pagestyle{only_footer}
-\thispagestyle{header_footer}
+\pagestyle{normal_page}
+\thispagestyle{first_page}
 
 \section{Summary}
 \input{sections/summary}
@@ -21,7 +21,7 @@
 \section{Experience}
 \input{sections/experience}
 
-\newpage
+% \newpage
 \section{Publications}
 \input{sections/publications}
 
@@ -34,12 +34,14 @@
 \section{Skills}
 \input{sections/skills}
 
-\newpage
+% \newpage
 \section{Personal Projects}
 \input{sections/projects}
 
 \section{Outreach}
 \input{sections/outreach}
+
+\thispagestyle{last_page}
 
 % make a newpage wherever it is a clean break
 % \newpage

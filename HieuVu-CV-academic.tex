@@ -12,10 +12,10 @@
 
 \begin{document}
 
-\def\role{} % JOB TITLE
+\def\role{} % No job title for academic CV
 
-\pagestyle{only_footer}
-\thispagestyle{header_footer}
+\pagestyle{normal_page}
+\thispagestyle{first_page}
 
 % \section{}
 \input{sections/intro}
@@ -32,15 +32,17 @@
 \section{Experience}
 \input{sections/experience}
 
-\newpage
+% \newpage
 \section{Personal Projects}
 \input{sections/projects.tex}
+
+\section{Skills}
+\input{sections/skills}
 
 \section{Outreach}
 \input{sections/outreach}
 
-\section{Skills}
-\input{sections/skills}
+\thispagestyle{last_page}
 
 % make a newpage wherever it is a clean break
 % \newpage

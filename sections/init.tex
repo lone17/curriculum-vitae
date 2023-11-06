@@ -27,15 +27,18 @@
 % Your name on the publications, this will be highlighted
 \bibname{Vu}{Hieu\bibnamedelima M}
 
-\def\myfooter{
+\def\lastUpdateFooter{
   % left footer is the last update date
   \lfoot{\color{gray}{\it Updated on: \ddMMMyyyy\today. My most up-to-date CV is available on
       \href{https://github.com/lone17/curriculum-vitae/blob/main/HieuVu-CV.pdf}{\underline{Github}}.}}
+}
+
+\def\pageNumberFooter{
   % right footer is the page number
   \rfoot{\thepage}
 }
 
-\def\myheader{
+\def\personalInfoHeader{
   % left header: contact infos
   \lhead{
     \faSquareEnvelope{} \href{mailto:\email}{\email}\\
@@ -67,16 +70,26 @@
 }
 
 % base style for all pages
-\fancypagestyle{only_footer}{
+\fancypagestyle{normal_page}{
   \fancyhf{}
-  \myfooter{}
+  % no header line
+  \renewcommand{\headrule}{\hrule height 0pt}
+  \pageNumberFooter{}
 }
 
 % style for the first page
-\fancypagestyle{header_footer}{
+\fancypagestyle{first_page}{
   \fancyhf{}
-  \myheader{}
-  \myfooter{}
+  \personalInfoHeader{}
+  \pageNumberFooter{}
+}
+
+\fancypagestyle{last_page}{
+  \fancyhf{}
+  % no header line
+  \renewcommand{\headrule}{\hrule height 0pt}
+  \pageNumberFooter{}
+  \lastUpdateFooter{}
 }
 
 % header height
