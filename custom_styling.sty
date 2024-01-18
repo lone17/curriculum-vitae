@@ -4,13 +4,13 @@
 \usepackage{ifxetex,ifluatex}
 \newif\ifxetexorluatex
 \ifxetex
-  \xetexorluatextrue
-\else
-  \ifluatex
     \xetexorluatextrue
-  \else
-    \xetexorluatexfalse
-  \fi
+\else
+    \ifluatex
+        \xetexorluatextrue
+    \else
+        \xetexorluatexfalse
+    \fi
 \fi
 
 % Assuming using "article" document class and letter sized paper.
@@ -70,11 +70,11 @@
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}
 {\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 2pt \parsep 0pt}
-    {\end{itemize} \vspace{0em}}
+        {\end{itemize} \vspace{0em}}
 
 \newenvironment{xitemize}
 {\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
-    {\end{itemize} \vspace{0em}}
+        {\end{itemize} \vspace{0em}}
 
 % NO PAGE NUMBER
 \pagenumbering{arabic}
@@ -87,55 +87,61 @@
 
 % \RequirePackage[english]{babel}
 
-\RequirePackage[bibstyle=authoryear,maxbibnames=99,sorting=ymdnt,uniquename=init,defernumbers=true,backend=biber]{biblatex}
-\RequirePackage{csquotes}
-%% Added 17 Jan 2018 from https://tex.stackexchange.com/a/140641/226 and https://tex.stackexchange.com/a/46879/226
-\DeclareSortingTemplate{ymdnt}{
-  \sort{
-    \field{presort}
-  }
-  \sort[final]{
-    \field{sortkey}
-  }
-  \sort[direction=descending]{
-    \field[strside=left,strwidth=4]{sortyear}
-    \field[strside=left,strwidth=4]{year}
-    \literal{9999}
-  }
-  \sort[direction=descending]{
-    \field[padside=left,padwidth=2,padchar=0]{month}
-    \literal{00}
-  }
-  \sort[direction=descending]{
-    \field[padside=left,padwidth=2,padchar=0]{day}
-    \literal{00}
-  }
-  \sort{
-    \field{sortname}
-    \field{author}
-    \field{editor}
-    \field{translator}
-    \field{sorttitle}
-    \field{title}
-  }
-  \sort{
-    \field{sorttitle}
-    \field{title}
-  }
-}
+\RequirePackage[
+    bibstyle=authoryear,
+    maxbibnames=99,
+    sorting=ymdnt,
+    uniquename=init,
+    defernumbers=true,
+    backend=biber
+]{biblatex}
 
-% \RequirePackage{tikz}
-% \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-%    \node[shape=circle,text=white,fill=MarkerColour!80!black,font=\sffamily\scriptsize\bfseries,inner sep=1pt,text height=1.35ex,minimum width=1.5em,text centered] (char) {#1};}}
+
+% Added 17 Jan 2018 from https://tex.stackexchange.com/a/140641/226 and https://tex.stackexchange.com/a/46879/226
+\DeclareSortingTemplate{ymdnt}{
+    \sort{
+        \field{presort}
+    }
+    \sort[final]{
+        \field{sortkey}
+    }
+    \sort[direction=descending]{
+        \field[strside=left,strwidth=4]{sortyear}
+        \field[strside=left,strwidth=4]{year}
+        \literal{9999}
+    }
+    \sort[direction=descending]{
+        \field[padside=left,padwidth=2,padchar=0]{month}
+        \literal{00}
+    }
+    \sort[direction=descending]{
+        \field[padside=left,padwidth=2,padchar=0]{day}
+        \literal{00}
+    }
+    \sort{
+        \field{sortname}
+        \field{author}
+        \field{editor}
+        \field{translator}
+        \field{sorttitle}
+        \field{title}
+    }
+    \sort{
+        \field{sorttitle}
+        \field{title}
+    }
+}
 
 \newcounter{bibitem}
 \AtBeginBibliography{\setcounter{bibitem}{1}}
 \AtEveryBibitem{\makebox[2.5em][l]{{\thebibitem}\stepcounter{bibitem}}}
 
-% \renewcommand{\bibfont}{\small}
+\renewcommand{\bibfont}{\small}
 \setlength{\bibitemsep}{1.5ex}
 \setlength{\bibhang}{2.5em}
+
 \RequirePackage{xpatch}
+
 \xpretofieldformat{doi}
 {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
 {}{}
@@ -163,6 +169,7 @@
   {\textbf{#1}}%
   {#1}%
 }
+
 
 % LINKS
 \RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
