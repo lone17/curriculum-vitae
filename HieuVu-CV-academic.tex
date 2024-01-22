@@ -8,7 +8,10 @@
 
 \usepackage{custom_styling}
 
-\input{sections/init}
+% link to the upstream version, define this before init so that the footer contains the correct link.
+\def\upstreamCV{https://github.com/lone17/curriculum-vitae/blob/main/HieuVu-CV-academic.pdf}
+
+\input{sections/common/init}
 
 \begin{document}
 
@@ -18,29 +21,29 @@
 \thispagestyle{first_page}
 
 % \section{}
-\input{sections/intro}
+\input{sections/common/intro}
 
 \section{Publications}
-\input{sections/publications}
+\input{sections/common/publications}
 
 \section{Education}
-\input{sections/education-academic}
+\input{sections/academic/education}
 
 \section{Honours and Awards}
-\input{sections/awards-academic}
+\input{sections/academic/awards}
 
 \section{Experience}
-\input{sections/experience}
+\input{sections/common/experience}
 
 % \newpage
 \section{Personal Projects}
-\input{sections/projects.tex}
+\input{sections/common/projects}
 
 \section{Skills}
-\input{sections/skills}
+\input{sections/common/skills}
 
 \section{Outreach}
-\input{sections/outreach}
+\input{sections/common/outreach}
 
 \thispagestyle{last_page}
 
