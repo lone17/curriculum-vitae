@@ -1,0 +1,48 @@
+\documentclass[english,a4paper,10pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[fixed]{fontawesome5}
+\usepackage{xcolor}
+\usepackage{datetime}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\usepackage{custom_styling}
+
+% link to the upstream version, define this before init so that the footer contains the correct link.
+\def\upstreamCV{https://github.com/lone17/curriculum-vitae/blob/main/HieuVu-CV-short.pdf}
+
+\input{sections/common/init}
+
+\begin{document}
+
+\pagestyle{normal_page}
+\thispagestyle{first_page}
+
+\section{Summary}
+\input{sections/common/summary}
+
+\section{Experience}
+\input{sections/short/experience}
+
+\section{Education}
+\input{sections/academic/education}
+
+\section{Skills}
+\input{sections/common/skills}
+
+\section{Publications}
+\input{sections/common/publications}
+
+\section{Personal Projects}
+\input{sections/short/projects}
+
+\section{Honours and Awards}
+\input{sections/industry/awards}
+
+\thispagestyle{last_page}
+
+% make a newpage wherever it is a clean break
+% \newpage
+
+
+\end{document}

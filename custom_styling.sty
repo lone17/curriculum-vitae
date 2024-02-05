@@ -69,11 +69,11 @@
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}
-{\begin{itemize} \vspace{-.2em} \itemsep 0pt \parskip 2pt \parsep 0pt}
+{\begin{itemize} \vspace{-.6em} \itemsep 0pt \parskip 2pt \parsep 0pt}
         {\end{itemize} \vspace{0em}}
 
 \newenvironment{xitemize}
-{\begin{itemize} \itemsep .2em \parskip 0pt \parsep 0pt}
+{\begin{itemize} \itemsep .1em \parskip 2pt \parsep 0pt}
         {\end{itemize} \vspace{0em}}
 
 % NO PAGE NUMBER
@@ -150,24 +150,24 @@
 {}{}
 
 \newcommand{\bibname}[2]{%
-  \def\@mylastname{#1}%
-  \def\@myfirstname{#2}%
+    \def\@mylastname{#1}%
+    \def\@myfirstname{#2}%
 }
 
 \renewcommand*{\mkbibnamefamily}[1]{%
-  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
-    and
-    test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
-  {\textbf{#1}}%
-  {#1}%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+        and
+        test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}%
 }
 
 \renewcommand*{\mkbibnamegiven}[1]{%
-  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
-    and
-    test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
-  {\textbf{#1}}%
-  {#1}%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+        and
+        test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}%
 }
 
 
