@@ -44,7 +44,9 @@
 
 % COLOR
 \RequirePackage{xcolor}
-\definecolor{highlight}{RGB}{61, 90, 128} % CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
+% CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
+\definecolor{highlight}{RGB}{61, 90, 128}
+\definecolor{barely-visible}{RGB}{206, 209, 219}
 
 % BULLET POINTS
 \RequirePackage[inline]{enumitem}
@@ -53,7 +55,7 @@
 % SECTION FORMATTING 
 \RequirePackage[nostruts]{titlesec}
 \titlespacing*{\section}{0em}{.5em}{0em}
-\titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
+\titleformat{\section}{\color{highlight} \raggedright \Large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
 % SUBSECTION FORMATTING
 \titlespacing*{\subsection}{0em}{0em}{0em}
 \titleformat{\subsection}{\bfseries}{}{0em}{}[]
@@ -61,7 +63,8 @@
 % BOLD COMMAND
 \newcommand{\skills}[1]{ {\raggedleft \bfseries #1}}
 
-
+% funny remark
+\newcommand{\funnyRemark}[1]{\scriptsize \color{barely-visible} \texttt{#1}}
 
 % SUBTEXT
 \newcommand{\subtext}[1]{\textit{#1}\par}
