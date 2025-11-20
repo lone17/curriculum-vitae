@@ -24,7 +24,7 @@
 
 % % Change the fonts if you want
 % \ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
-%   \usepackage{fontspec} 
+%   \usepackage{fontspec}
 %   %% You can use \setmainfont etc; I'm just using these font packages here because they provide OpenType fonts for use by XeLaTeX/LuaLaTeX anyway
 %   \usepackage[p,osf,swashQ]{cochineal}
 %   \usepackage[medium,bold]{cabin}
@@ -52,7 +52,7 @@
 \RequirePackage[inline]{enumitem}
 \setlength{\tabcolsep}{0in}
 
-% SECTION FORMATTING 
+% SECTION FORMATTING
 \RequirePackage[nostruts]{titlesec}
 \titlespacing*{\section}{0em}{.5em}{0em}
 \titleformat{\section}{\color{highlight} \raggedright \Large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
@@ -91,7 +91,7 @@
 % \RequirePackage[english]{babel}
 
 \RequirePackage[
-    bibstyle=authoryear,
+    bibstyle=numeric,
     maxbibnames=99,
     sorting=ymdnt,
     uniquename=init,
@@ -137,7 +137,8 @@
 
 \newcounter{bibitem}
 \AtBeginBibliography{\setcounter{bibitem}{1}}
-\AtEveryBibitem{\makebox[2.5em][l]{{\thebibitem}\stepcounter{bibitem}}}
+% add numbering to bibliography items
+% \AtEveryBibitem{\makebox[2.5em][l]{{\thebibitem}\stepcounter{bibitem}}}
 
 \renewcommand{\bibfont}{\small}
 \setlength{\bibitemsep}{1.5ex}
@@ -146,10 +147,10 @@
 \RequirePackage{xpatch}
 
 \xpretofieldformat{doi}
-{\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+{\textcolor{highlight!80!black}{\scriptsize\faLink}}
 {}{}
 \xpretofieldformat{url}
-{\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+{\textcolor{highlight!80!black}{\scriptsize\faLink}}
 {}{}
 
 \newcommand{\bibname}[2]{%
@@ -158,17 +159,29 @@
 }
 
 \renewcommand*{\mkbibnamefamily}[1]{%
-    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+    \ifboolexpr{
+        (
+            test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+            or
+            test {\ifdefstrequal{\namepartfamily}{\@mylastname*}}
+        )
         and
-        test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+        test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}
+    }
     {\textbf{#1}}%
     {#1}%
 }
 
 \renewcommand*{\mkbibnamegiven}[1]{%
-    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+    \ifboolexpr{
+        (
+            test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+            or
+            test {\ifdefstrequal{\namepartfamily}{\@mylastname*}}
+        )
         and
-        test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+        test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}
+    }
     {\textbf{#1}}%
     {#1}%
 }
