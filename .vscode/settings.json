@@ -29,12 +29,29 @@
                 "%DOCFILE%"
             ],
             "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "/Users/ian/bin/bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
         }
     ],
     "latex-workshop.latex.recipes": [
         {
             "name": "XeLaTeX",
             "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "XeLaTeX -> BibTeX -> XeLaTeX*2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
                 "xelatex"
             ]
         },
@@ -52,9 +69,18 @@
             "tools": [
                 "pdflatex"
             ]
+        },
+        {
+            "name": "PDFLaTeX -> BibTeX -> PDFLaTeX*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
         }
     ],
-    "latex-workshop.latex.recipe.default": "XeLaTeX",
+    "latex-workshop.latex.recipe.default": "XeLaTeX -> Biber -> XeLaTeX*2",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
